@@ -1,2 +1,2 @@
-# Amblycera_mitogenomes
+# Amblycera-mitogenomes
 Code used for analyses of Amblycera mitogenomes.
