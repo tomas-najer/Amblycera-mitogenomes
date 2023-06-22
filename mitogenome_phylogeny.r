@@ -1,0 +1,382 @@
+library("readxl")
+library("ape")
+library("ggplot2")
+library("phytools")
+library("geiger")
+library(ggplot2)
+library(gggenes)
+library(ggfittext)
+library(ggrepel)
+library(dplyr)
+library("ggtree")
+library(ggplotify)
+library(treeio)
+
+setwd("/home/tomas/Documents/Amblycera_mitogenomes/Figure_1")
+
+Amblycera_tree <- read.tree('Amblycera_tree_ladderized.tree')
+plot.phylo(Amblycera_tree,cex=0.5)
+tiplabels()
+Amblycera_tree <- drop.tip(Amblycera_tree, 2)
+
+d <- read.csv("tree_labels_1.csv")
+renamed_tree <- rename_taxa(Amblycera_tree, d, label, label2)
+
+MespMepuc<-read.csv("MespMepuc_renamed.csv",skip=1,header=F)
+Mebal<-read.csv("Mebal_renamed.csv",skip=1,header=F)
+MespPhalb<-read.csv("MespPhalb_renamed.csv",skip=1,header=F)
+Nuant<-read.csv("Nuant_renamed.csv",skip=1,header=F)
+Mngal<-read.csv("Mngal_renamed.csv",skip=1,header=F)
+ClspFraha<-read.csv("ClspFraha_renamed.csv",skip=1,header=F)
+MespOrvet<-read.csv("MespOrvet_renamed.csv",skip=1,header=F)
+Amjac<-read.csv("Amjac_renamed.csv",skip=1,header=F)
+MaspWipoe<-read.csv("MaspWipoe_renamed.csv",skip=1,header=F)
+Cmuro<-read.csv("Cmuro_renamed.csv",skip=1,header=F)
+Pmpil<-read.csv("Pmpil_renamed.csv",skip=1,header=F)
+Hzarm<-read.csv("Hzarm_renamed.csv",skip=1,header=F)
+Qtiri<-read.csv("Qtiri_renamed.csv",skip=1,header=F)
+Holat<-read.csv("Holat_renamed.csv",skip=1,header=F)
+BnspCoarq<-read.csv("BnspCoarq_renamed.csv",skip=1,header=F)
+Bncol<-read.csv("Bncol_renamed.csv",skip=1,header=F)
+Horad<-read.csv("Horad_renamed.csv",skip=1,header=F)
+ApspApsp<-read.csv("ApspApsp_renamed.csv",skip=1,header=F)
+KmspPiiri<-read.csv("KmspPiiri_renamed.csv",skip=1,header=F)
+Mmmer<-read.csv("Mmmer_renamed.csv",skip=1,header=F)
+Qlple<-read.csv("Qlple_renamed.csv",skip=1,header=F)
+Pmdol<-read.csv("Pmdol_renamed.csv",skip=1,header=F)
+MyspTymel<-read.csv("MyspTymel_renamed.csv",skip=1,header=F)
+MyspHymus<-read.csv("MyspHymus_renamed.csv",skip=1,header=F)
+MyrspMylu<-read.csv("MyrspMylu_renamed.csv",skip=1,header=F)
+RmspRatuc<-read.csv("RmspRatuc_renamed.csv",skip=1,header=F)
+MyspGycal<-read.csv("MyspGycal_renamed.csv",skip=1,header=F)
+MyspEujav<-read.csv("MyspEujav_renamed.csv",skip=1,header=F)
+Mymin<-read.csv("Mymin_renamed.csv",skip=1,header=F)
+Mywom<-read.csv("Mywom_renamed.csv",skip=1,header=F)
+MespComel<-read.csv("MespComel_renamed.csv",skip=1,header=F)
+DespChspi<-read.csv("DespChspi_renamed.csv",skip=1,header=F)
+DespChegr<-read.csv("DespChegr_renamed.csv",skip=1,header=F)
+DespCoesc241<-read.csv("DespCoesc241_renamed.csv",skip=1,header=F)
+DespAepap<-read.csv("DespAepap_renamed.csv",skip=1,header=F)
+Depas<-read.csv("Depas_renamed.csv",skip=1,header=F)
+Zhlop<-read.csv("Zhlop_renamed.csv",skip=1,header=F)
+
+CmspArmel<-read.csv("CmspArmel_renamed.csv",skip=1,header=F)
+Cidec<-read.csv("Cidec_renamed.csv",skip=1,header=F)
+OscroCroan<-read.csv("OscroCroan_renamed.csv",skip=1,header=F)
+Cwuni<-read.csv("Cwuni_renamed.csv",skip=1,header=F)
+Cwnan<-read.csv("Cwnan_renamed.csv",skip=1,header=F)
+Cwcri<-read.csv("Cwcri_renamed.csv",skip=1,header=F)
+TuspMujoh<-read.csv("TuspMujoh_renamed.csv",skip=1,header=F)
+Cwkeg<-read.csv("Cwkeg_renamed.csv",skip=1,header=F)
+Noluc<-read.csv("Noluc_renamed.csv",skip=1,header=F)
+Kuhal<-read.csv("Kuhal_renamed.csv",skip=1,header=F)
+Qiper<-read.csv("Qiper_renamed.csv",skip=1,header=F)
+Qmgul<-read.csv("Qmgul_renamed.csv",skip=1,header=F)
+Odpho<-read.csv("Odpho_renamed.csv",skip=1,header=F)
+Pbama<-read.csv("Pbama_renamed.csv",skip=1,header=F)
+HmspArjan<-read.csv("HmspArjan_renamed.csv",skip=1,header=F)
+KmspCaban<-read.csv("KmspCaban_renamed.csv",skip=1,header=F)
+EospTrhae<-read.csv("EospTrhae_renamed.csv",skip=1,header=F)
+DcspChtor<-read.csv("DcspChtor_renamed.csv",skip=1,header=F)
+Fraur<-read.csv("Fraur_renamed.csv",skip=1,header=F)
+NispLivoc<-read.csv("NispLivoc_renamed.csv",skip=1,header=F)
+Aeatr<-read.csv("Aeatr_renamed.csv",skip=1,header=F)
+Anvag<-read.csv("Anvag_renamed.csv",skip=1,header=F)
+Eipus<-read.csv("Eipus_renamed.csv",skip=1,header=F)
+
+Heass<-read.csv("Heass_renamed.csv",skip=1,header=F)
+Achop<-read.csv("Achop_renamed.csv",skip=1,header=F)
+HpspAnstr<-read.csv("HpspAnstr_renamed.csv",skip=1,header=F)
+Cqpla<-read.csv("Cqpla_renamed.csv",skip=1,header=F)
+Tnnig<-read.csv("Tnnig_renamed.csv",skip=1,header=F)
+Tnflu<-read.csv("Tnflu_renamed.csv",skip=1,header=F)
+Tnque<-read.csv("Tnque_renamed.csv",skip=1,header=F)
+Htspi<-read.csv("Htspi_renamed.csv",skip=1,header=F)
+HtspMaagi<-read.csv("HtspMaagi_renamed.csv",skip=1,header=F)
+Tmhis<-read.csv("Tmhis_renamed.csv",skip=1,header=F)
+Chcla<-read.csv("Chcla_renamed.csv",skip=1,header=F)
+GlspPrgar<-read.csv("GlspPrgar_renamed.csv",skip=1,header=F)
+HsspPrgar<-read.csv("HsspPrgar_renamed.csv",skip=1,header=F)
+Zumac<-read.csv("Zumac_renamed.csv",skip=1,header=F)
+Mccos<-read.csv("Mccos_renamed.csv",skip=1,header=F)
+Aoher<-read.csv("Aoher_renamed.csv",skip=1,header=F)
+Latin<-read.csv("Latin_renamed.csv",skip=1,header=F)
+Lamax<-read.csv("Lamax_renamed.csv",skip=1,header=F)
+Laglu<-read.csv("Laglu_renamed.csv",skip=1,header=F)
+Lagra<-read.csv("Lagra_renamed.csv",skip=1,header=F)
+Laatr<-read.csv("Laatr_renamed.csv",skip=1,header=F)
+Laopi<-read.csv("Laopi_renamed.csv",skip=1,header=F)
+Tpang<-read.csv("Tpang_renamed.csv",skip=1,header=F)
+TcspArcol<-read.csv("TcspArcol_renamed.csv",skip=1,header=F)
+RispJuhye<-read.csv("RispJuhye_renamed.csv",skip=1,header=F)
+Rielo<-read.csv("Rielo_renamed.csv",skip=1,header=F)
+RispMylu<-read.csv("RispMylu_renamed.csv",skip=1,header=F)
+RispBlsyn<-read.csv("RispBlsyn_renamed.csv",skip=1,header=F)
+
+MyspRatuc<-read.csv("MyspRatuc_renamed.csv",skip=1,header=F)
+FrspCaban<-read.csv("FrspCaban_renamed.csv",skip=1,header=F)
+
+annotations<-rbind(MespMepuc,
+                   Mebal,
+                   MespPhalb,
+                   Nuant,
+                   Mngal,
+                   ClspFraha,
+                   MespOrvet,
+                   Amjac,
+                   MaspWipoe,
+                   Cmuro,
+                   Pmpil,
+                   Hzarm,
+                   Qtiri,
+                   Holat,
+                   BnspCoarq,
+                   Bncol,
+                   Horad,
+                   ApspApsp,
+                   KmspPiiri,
+                   Mmmer,
+                   Qlple,
+                   Pmdol,
+                   MyspTymel,
+                   MyspHymus,
+                   MyrspMylu,
+                   RmspRatuc,
+                   MyspGycal,
+                   MyspEujav,
+                   Mymin,
+                   Mywom,
+                   MespComel,
+                   DespChspi,
+                   DespChegr,
+                   DespCoesc241,
+                   DespAepap,
+                   Depas,
+                   Zhlop,
+                   CmspArmel,
+                   Cidec,
+                   OscroCroan,
+                   Cwuni,
+                   Cwnan,
+                   Cwcri,
+                   TuspMujoh,
+                   Cwkeg,
+                   Noluc,
+                   Kuhal,
+                   Qiper,
+                   Qmgul,
+                   Odpho,
+                   Pbama,
+                   HmspArjan,
+                   KmspCaban,
+                   EospTrhae,
+                   DcspChtor,
+                   Fraur,
+                   NispLivoc,
+                   Aeatr,
+                   Anvag,
+                   Eipus,
+                   Heass,
+                   Achop,
+                   HpspAnstr,
+                   Cqpla,
+                   Tnnig,
+                   Tnflu,
+                   Tnque,
+                   Htspi,
+                   HtspMaagi,
+                   Tmhis,
+                   Chcla,
+                   GlspPrgar,
+                   HsspPrgar,
+                   Zumac,
+                   Mccos,
+                   Aoher,
+                   Latin,
+                   Lamax,
+                   Laglu,
+                   Lagra,
+                   Laatr,
+                   Laopi,
+                   Tpang,
+                   TcspArcol,
+                   RispJuhye,
+                   Rielo,
+                   RispMylu,
+                   RispBlsyn,
+                   MyspRatuc,
+                   FrspCaban)
+
+colnames(annotations)<-c('louse','start','end','gene','strand','orientation')
+
+tipcategories <- read.csv("genome_structure.csv", col.names=c("seq","cat"), header=T)
+tipcategories
+p <- ggtree(renamed_tree, branch.length='none')
+p %<+% tipcategories +
+  geom_tiplab(size=3,fontface=3,aes(color=factor(cat))) +
+  scale_color_manual(values=c(Single="green",Fragmented="red"))
+
+renamed_tree <- groupOTU(renamed_tree,tipcategories)
+ggtree(renamed_tree, branch.length='none') +
+  geom_tiplab(size=3,fontface=3) +
+  scale_x_continuous(expand=c(0,50)) +
+  xlim_tree(200)
+
+p <- ggtree(renamed_tree,branch.length='none') +
+  xlim_tree(60) +
+  geom_facet(mapping = aes(xmin = start, xmax = end, fill = gene, forward = orientation),
+             data = annotations, geom = geom_motif, panel = 'Alignment',
+             on = 'cox1', align = 'left',arrowhead_height = unit(2, "mm"), arrowhead_width = unit(1, "mm"), arrow_body_height = unit(1.5, "mm")) +
+  scale_fill_manual(values=c(
+    #atp6
+    "#4169E1",
+    #atp8
+    "#00BFFF",
+    #cob
+    "#9370DB",
+    #cox1
+    "#008000",
+    #cox2
+    "#6B8E23",
+    #cox3
+    "#ADFF2F",
+    #nad1
+    "#800000",
+    #nad2
+    "#A52A2A",
+    #nad3
+    "#DAA520",
+    #nad4
+    "#F4A460",
+    #nad4l
+    "#FFDEAD",
+    #nad5
+    "#CD853F",
+    #nad6
+    "#D2691E",
+    #NC
+    "#000000",
+    #rrnL
+    "#FF0000",
+    #rrnS
+    "#DC143C",
+    #All below this are the trna's
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00",
+    "#FFFF00")) +
+  theme_genes() +
+  theme(axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.text.y=element_blank(),
+        legend.position="bottom",
+        legend.direction="horizontal",
+        legend.box="vertical",
+        legend.justification="left",
+        legend.box.just="left",
+        axis.ticks.y=element_blank(),
+        panel.grid.major.y = element_blank()) +
+  theme(strip.text=element_blank(),
+        panel.spacing=unit(0, 'cm'))
+p <- p %<+% tipcategories +
+  geom_tiplab(size=2.5,fontface=3,aes(color=factor(cat))) +
+  scale_color_manual(values=c(Single="darkgreen",Fragmented="red"))
+facet_widths(p, c(1,1))
